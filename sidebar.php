@@ -22,7 +22,7 @@
 
                     <li>
                     <dl>
-                        <dt><span class="<?php echo $cat_slug;?> label4"><?php echo $cat_name;?></span> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <?php the_time('Y年m月d日');?></dt>
+                        <dt><span class="<?php echo $cat_slug;?> <?php echo ($cat_slug == 'news') ? 'label4' : 'label5'; ?>"><?php echo $cat_name;?></span> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <?php the_time('Y年m月d日');?></dt>
                         <dd>
                             <p><a href="<?php the_permalink();?>"><?php the_title();?></a></p>
                         </dd>

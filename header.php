@@ -41,7 +41,7 @@
                     <ul>
                         <li><a href="tel:0447516125"><img src="<?php echo get_template_directory_uri(); ?>/images/tel.png" width="224" height="34" alt="0447516125"/></a></li>
                         <li class="line1">営業時間　8:00 〜 19:00</li>
-                        <li><a href="/contact/"><i class="fa fa-envelope" aria-hidden="true"></i> お問い合わせ</a></li>
+                        <li><a href="<?php echo home_url();?>/contact/"><i class="fa fa-envelope" aria-hidden="true"></i> お問い合わせ</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,40 +63,64 @@
                     <ul class="nav navbar-nav">
                         <li class="active"> <a href="<?php echo home_url();?>">ホーム</a>
                             <hr>
-                            <small>HOME</small> </li>
-                        <li> <a href="/business/">事業内容</a>
+                            <small>HOME</small>
+                        </li>
+                        <li> <a href="<?php echo home_url();?>/business/">事業内容</a>
                             <hr>
-                            <small>BUSINESS</small> </li>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">サービス紹介 <span class="caret"></span></a>
+                            <small>BUSINESS</small>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                サービス紹介 <span class="caret"></span>
+                            </a>
                             <hr>
                             <small>SERVICE</small>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="/waterproof/">防水工事</a></li>
-                                <li><a href="/paint/">塗装工事</a></li>
-                                <li><a href="/peeling/">剥離・炭素繊維工法</a></li>
-                                <li><a href="/rainfall/">雨漏り検知器</a></li>
+                                <li><a href="<?php echo home_url();?>/waterproof/">防水工事</a></li>
+                                <li><a href="<?php echo home_url();?>/paint/">塗装工事</a></li>
+                                <li><a href="<?php echo home_url();?>/peeling/">剥離・炭素繊維工法</a></li>
+                                <li><a href="<?php echo home_url();?>/rainfall/">雨漏り検知器</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">実績紹介 <span class="caret"></span></a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                実績紹介 <span class="caret"></span>
+                            </a>
                             <hr>
                             <small>WORKS</small>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="/category/waterproof/">防水工事</a></li>
-                                <li><a href="/category/paint/">塗装工事</a></li>
-                                <li><a href="/category/otherwork/">その他工事</a></li>
+                                <li><a href="<?php echo home_url();?>/category/waterproof/">防水工事</a></li>
+                                <li><a href="<?php echo home_url();?>/category/paint/">塗装工事</a></li>
+                                <li><a href="<?php echo home_url();?>/category/otherwork/">その他工事</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">企業情報 <span class="caret"></span></a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                企業情報 <span class="caret"></span>
+                            </a>
                             <hr>
                             <small>COMPANY</small>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="/greeting/">代表挨拶</a></li>
-                                <li><a href="/company/">会社概要</a></li>
+                                <li><a href="<?php echo home_url();?>/greeting/">代表挨拶</a></li>
+                                <li><a href="<?php echo home_url();?>/company/">会社概要</a></li>
                             </ul>
                         </li>
-                        <li> <a href="/category/news/">お知らせ</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                お知らせ <span class="caret"></span>
+                            </a>
                             <hr>
-                            <small>NEWS</small> </li>
+                            <small>NEWS</small>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="<?php echo home_url();?>/category/news/">お知らせ</a></li>
+                                <li><a href="<?php echo home_url();?>/category/orders/">受注状況</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="<?php echo home_url();?>/faq/">よくある質問</a>
+                            <hr>
+                            <small>Q&A</small>
+                        </li>
                     </ul>
                 </div>
                 <!--nav-collapse -->

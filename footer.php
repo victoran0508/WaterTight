@@ -7,6 +7,11 @@
                         <li> <a href="<?php echo home_url();?>"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> ホーム</a></li>
                         <li> <a href="/business/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 事業内容</a></li>
                         <li> <a href="/rainfall/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 雨漏り検知器について</a></li>
+                        <li class="display-flex hidden-1200-down">
+                            <a href="<?php echo home_url();?>/instagram/" class="sns-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="<?php echo home_url();?>/facebook/" class="sns-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="<?php echo home_url();?>/twitter/" class="sns-btn"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </li>
                     </ul>
                 </div>
                 <!--footlist-->
@@ -49,7 +54,19 @@
     </div>
     <!--footlink-->
 
+
+
     <div class="last">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 display-flex justify-content-center hidden-1200-up mb20">
+                    <a href="<?php echo home_url();?>/instagram/" class="sns-btn sns-btn--blue"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="<?php echo home_url();?>/facebook/" class="sns-btn sns-btn--blue"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="<?php echo home_url();?>/twitter/" class="sns-btn sns-btn--blue"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-4 flogo"> <img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" width="311" height="99" alt="ウォータータイト工業株式会社" class="img-responsive"/>
