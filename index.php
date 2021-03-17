@@ -27,23 +27,46 @@
 <!--maintext-->
 
 <!-- 受注状況 start -->
-<div class="container">
-    <h4 class="msl_title">受注状況 <span class="msl_title2">最新の受注状況・工事完了状況のお知らせ</span></h4>
-    <div class="msl_main">
-        <div class="msl_box">
-        <?php
-                include_once 'article/inc/mslinfo.php';
-                $msl_infos1 = new MSLPageInfo('1507', '2786');
-                echo $msl_infos1->get('html_article');
-            ?>
+<div class="container orders-container">
+    <h4 class="title4">受注状況<span>最新の受注状況・工事完了状況のお知らせ</span></h4>
+    <div class="row">
+        <div class="col-md-6 news">
+            <?php query_posts('cat=5&showposts=2'); ?>
+            <?php if(have_posts()): while(have_posts()):the_post(); ?>
+                <dl>
+                    <dt><?php the_time('Y年m月d日');?></dt>
+                    <dd><a href="<?php the_permalink();?>"><?php the_title();?></a></dd>
+                </dl>
+            <?php endwhile; endif; ?>
+            <?php wp_reset_query(); ?>
+        </div>
+        <div class="col-md-6 news">
+            <?php query_posts('cat=5&showposts=2&offset=2'); ?>
+            <?php if(have_posts()): while(have_posts()):the_post(); ?>
+                <dl>
+                    <dt><?php the_time('Y年m月d日');?></dt>
+                    <dd><a href="<?php the_permalink();?>"><?php the_title();?></a></dd>
+                </dl>
+            <?php endwhile; endif; ?>
+            <?php wp_reset_query(); ?>
         </div>
     </div>
-            
-    <div class="btnw2">
-        <a class="btn btn1" href="/category/orders/">受注状況一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-    </div>
+    <div class="btnw2"> <a class="btn btn1" href="/category/orders/">受注状況一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 </div>
 <!-- 受注状況 end -->
+<?php
+    } else {
+        get_header('page');
+        if (have_posts()) :
+            while (have_posts()) :
+                the_post();
+                    the_content();
+            endwhile;
+        else:
+            //★ここに投稿がない場合の表示ソースを書く
+        endif;
+    }
+?>
 
 <!-- リンクバナー start -->
 <div class="container">
@@ -69,25 +92,28 @@
                 <div class="display-flex">
                     <img class="img-circle" src="<?php echo get_template_directory_uri(); ?>/images/circle1.png">
                     <div class="col-sm-12">
-                        <div class="mb15">
-                            <span class="title11">改質アスファルトシートによる機械的固定工法</span>
+                        <div class="mb10">
+                            <span class="title11">改質アスファルトシートによる<br class="visible-992">機械的固定工法</span>
                         </div>
-                        <div>
+                        <div class="visible-992-1200">
                             <span class="title12">
-                                防水層の省層化、省エネ化、施工性の省力化、産業廃棄物発生量の削減など、 地球環境に配慮した防水工法・仕様の確立が求められています。
+                                防水層の省層化、省エネ化、施工性の省力化、産業廃棄物発生量の削減など、<br>地球環境に配慮した防水工法・仕様の確立が求められています。
                             </span>
                         </div>
                     </div>
                 </div>
+                <span class="title12 visible-992">
+                    防水層の省層化、省エネ化、施工性の省力化、産業廃棄物発生量の<br>削減など、地球環境に配慮した防水工法・仕様の確立が<br>求められています。
+                </span>
             </div>
-            <div class="row-title hidden-sm hidden-md hidden-lg display-flex flex-direction-column justify-content-center align-items-center">
-                <div class="display-flex align-items-center max-width-480">
-                    <img class="img-circle mr15" src="<?php echo get_template_directory_uri(); ?>/images/circle1.png">
-                    <span class="title11">改質アスファルトシートによる機械的固定工法</span>
+            <div class="row-title hidden-sm hidden-md hidden-lg display-flex flex-direction-column justify-content-center align-items-bottom">
+                <div class="display-flex align-items-center">
+                    <img class="img-circle" src="<?php echo get_template_directory_uri(); ?>/images/circle1.png">
+                    <span class="title11">改質アスファルトシートによる<br>機械的固定工法</span>
                 </div>
-                <div class="mt20 max-width-480">
+                <div class="mt20">
                     <span class="title12">
-                        防水層の省層化、省エネ化、施工性の省力化、産業廃棄物発生量の削減など、 地球環境に配慮した防水工法・仕様の確立が求められています。
+                        防水層の省層化、省エネ化、施工性の省力化、<br>産業廃棄物発生量の削減など、 地球環境に<br>配慮した防水工法・仕様の確立が求められています。
                     </span>
                 </div>
             </div>
@@ -98,7 +124,7 @@
             <img src="<?php echo get_template_directory_uri(); ?>/images/sikou.png" width="480" height="320" alt="ソーラー脱気防水システムイメージ" class="img-responsive img-cnt"/>
         </div>
         <div class="col-md-6 col-sm-6 tecbox">
-            <h4 class="title2">無駄のない工事で工期を短縮しコストパフォーマンスを向上を実現</h4>
+            <h4 class="title2">無駄のない工事で工期を短縮し<br>コストパフォーマンスの<br class="visible-768">向上を実現</h4>
             <p>既存防水層の種類や接着性を問いません。 また湿潤下地でも施工可能です。 下地調整も軽微で済み「かぶせ工法」に最適です。</p>
             <a class="btn btn1" href="<?php echo home_url(); ?>/waterproof/">詳細はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
         </div>
@@ -110,13 +136,13 @@
         <div class="col-md-6 col-sm-6 tecbox">
             <div class="row-title">
                 <div class="display-flex">
-                    <img class="img-circle mr15" src="<?php echo get_template_directory_uri(); ?>/images/circle2.png">
+                    <img class="img-circle" src="<?php echo get_template_directory_uri(); ?>/images/circle2.png">
                     <div class="display-flex justify-content-center flex-direction-column text-align-center">
                         <div class="mb15">
                             <span class="title11">GAINA</span>
                         </div>
                         <div>
-                            <span class="title12">「塗装に機能を持たせる」</span>
+                            <span class="title12">「塗装に機能を<br class="visible-992 visible-768">持たせる」</span>
                         </div>
                     </div>
                 </div>
@@ -138,13 +164,13 @@
         <div class="col-md-6 col-sm-6 tecbox">
             <div class="row-title">
                 <div class="display-flex">
-                    <img class="img-circle mr15" src="<?php echo get_template_directory_uri(); ?>/images/circle3.png">
+                    <img class="img-circle" src="<?php echo get_template_directory_uri(); ?>/images/circle3.png">
                     <div class="display-flex justify-content-center flex-direction-column text-align-center">
                         <div class="mb15">
                             <span class="title11">雨漏り検知器</span>
                         </div>
                         <div>
-                            <span class="title12">「雨漏りの早期発見を簡単に」</span>
+                            <span class="title12">「雨漏りの早期発見を<br class="visible-992 visible-768">簡単に」</span>
                         </div>
                     </div>
                 </div>
@@ -258,27 +284,25 @@
 </div>
 <!--company-->
 
-<!--
-<div class="container">
-    <h4 class="title4">NEWS <span>ウォータータイト工業株式会社からのお知らせ</span></h4>
+<!-- お知らせ start -->
+<div class="container news-container">
+    <h4 class="title4">お知らせ<span>ウォータータイト工業株式会社からのお知らせ</span></h4>
     <div class="row">
         <div class="col-md-6 news">
-
-            <?php query_posts('cat=5&showposts=2'); ?>
+            <?php query_posts('cat=1&showposts=2'); ?>
             <?php if(have_posts()): while(have_posts()):the_post(); ?>
-
                 <dl>
-                    <dt><i class="fa fa-pencil" aria-hidden="true"></i><?php the_time('Y年m月d日');?></dt>
+                    <dt><?php the_time('Y年m月d日');?></dt>
                     <dd><a href="<?php the_permalink();?>"><?php the_title();?></a></dd>
                 </dl>
             <?php endwhile; endif; ?>
             <?php wp_reset_query(); ?>
         </div>
         <div class="col-md-6 news">
-            <?php query_posts('cat=5&showposts=2&offset=2'); ?>
+            <?php query_posts('cat=1&showposts=2&offset=2'); ?>
             <?php if(have_posts()): while(have_posts()):the_post(); ?>
                 <dl>
-                    <dt><i class="fa fa-pencil" aria-hidden="true"></i><?php the_time('Y年m月d日');?></dt>
+                    <dt><?php the_time('Y年m月d日');?></dt>
                     <dd><a href="<?php the_permalink();?>"><?php the_title();?></a></dd>
                 </dl>
             <?php endwhile; endif; ?>
@@ -287,30 +311,17 @@
     </div>
     <div class="btnw2"> <a class="btn btn1" href="/category/news/">お知らせ一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 </div>
-    <?php
-    }else {
-    get_header('page');
-    if (have_posts()) :
-        while (have_posts()) :
-            the_post();
-                the_content();
-        endwhile;
-    else:
-//★ここに投稿がない場合の表示ソースを書く
-    endif;
-}
-?>
--->
+<!-- お知らせ end -->
 
 <!--msl1_start-->
-<div class="container">
+<!-- div class="container">
     <h4 class="msl_title">NEWS <span class="msl_title2">ウォータータイト工業株式会社からのお知らせ</span></h4>
     <div class="msl_main">
         <div class="msl_box">
             <?php
-                include_once 'article/inc/mslinfo.php';
-                $msl_infos1 = new MSLPageInfo('1507', '2786');
-                echo $msl_infos1->get('html_article');
+                // include_once 'article/inc/mslinfo.php';
+                // $msl_infos1 = new MSLPageInfo('1507', '2786');
+                // echo $msl_infos1->get('html_article');
             ?>
         </div>
     </div>
@@ -318,11 +329,11 @@
     <div class="btnw2">
         <a class="btn btn1" href="/category/news/">過去の新着情報はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
     </div>
-</div>
+</!-- -->
 <!--msl1_end-->
 
 <!--msl2&3_start-->
-<div class="container">
+<div class="container msl_2_3 display-flex justify-content-center">
     <div class="msl_2">
         <h4 class="msl_title">DIARY <span class="msl_title2">当社スタッフによる現場日記です</span></h4>
         <div class="msl_main">

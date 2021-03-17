@@ -1,6 +1,123 @@
 @charset "UTF-8";
 /* CSS Document */
 
+@mixin flex-center {
+    @include display-flex();
+    @include align-items-center();
+    @include justify-content-center();
+}
+
+@mixin flex-center-v {
+    @include display-flex();
+    @include align-items-center();
+}
+
+@mixin display-flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin align-items-center {
+    @include align-items(center);
+}
+
+@mixin align-items-flex-start {
+    @include align-items(flex-start);
+}
+
+@mixin align-items($v) {
+    -webkit-box-align: $v;
+    -webkit-flex-align: $v;
+    -ms-flex-align: $v;
+    -webkit-align-items: $v;
+    align-items: $v;
+}
+
+@mixin justify-content-center {
+    @include justify-content(center);
+}
+
+@mixin justify-content-space-evenly {
+    @include justify-content(space-evenly);
+}
+
+@mixin justify-content-space-around {
+    @include justify-content(space-around);
+    -webkit-box-pack: distribute;
+    -ms-flex-pack: distribute;
+}
+
+@mixin justify-content-space-between {
+    @include justify-content(space-between);
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+}
+
+@mixin justify-content-flex-start {
+    @include justify-content(flex-start);
+    -webkit-box-pack: start;
+}
+
+@mixin justify-content-flex-end {
+    @include justify-content(flex-end);
+    -webkit-box-pack: end;
+}
+
+@mixin justify-content($v) {
+    -webkit-box-pack: $v;
+	-webkit-justify-content: $v;
+    -ms-flex-pack: $v;
+	-moz-box-pack: $v;
+    justify-content: $v;
+}
+
+@mixin flex-direction-column {
+    -webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-box-orient: vertical;
+	-moz-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+@mixin flex-wrap-wrap {
+    @include flex-wrap(wrap);
+}
+
+@mixin flex-wrap($v) {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@mixin transition($attr, $sec, $ease) {
+	-webkit-transition: $attr $sec $ease;
+		-o-transition: $attr $sec $ease;
+			transition: $attr $sec $ease;
+}
+
+@mixin transition-all {
+	@include transition(all, .3s, ease);
+}
+
+@mixin transform($v) {
+    -webkit-transform: $v;
+    -ms-transform: $v;
+    transform: $v;
+}
+
+@mixin flex($v) {
+    -webkit-flex: $v;
+    -webkit-box-flex: $v;
+    -webkit-flex: $v;
+	-moz-box-flex: $v;
+    -ms-flex: $v;
+    flex: $v;
+}
+
 body {
 	font-family: "游ゴシック", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ ゴシック", sans-serif;
 	margin: 0;
@@ -190,7 +307,8 @@ header {
 
 #gnav li {
     text-align: center;
-    padding: 60px 12px 0;
+    padding-left: 12px;
+	padding-right: 12px;
     font-size: 19px;
     font-weight: bold;
 }
@@ -238,7 +356,23 @@ header {
 .navbar-nav > li > a {
    padding:0
 }
-
+.navbar-nav {
+	padding-top: 30px;
+	@include display-flex();
+	@include flex-wrap-wrap();
+	@include justify-content-flex-end();
+}
+.navbar-nav li {
+	padding-top: 30px;
+}
+.navbar .container {
+	@include display-flex();
+	@include align-items-center();
+	@include justify-content-center();
+}
+.navbar-brand {
+	height: auto;
+}
 
 .mainview {
 	background-image: url(../images/mainview.png);
@@ -378,10 +512,11 @@ header {
 
 .title2 {
 	color: #008080;
-	text-align:center;
-	font-size:24px;
-	font-weight:bold;
-	margin-bottom:20px;
+	text-align: center;
+	font-size: 24px / 1.2;
+	font-weight: bold;
+	margin-bottom: 20px;
+	letter-spacing: -0.03em;
 }
 .work-title {
 	background-color: #f3f3f4;
@@ -442,7 +577,7 @@ header {
 	background-color:#2981b8;
 	color:#FFF;
 	text-align:center;
-	padding: 15px 20px;
+	padding: 15px 0;
 	font-weight:bold;
 	margin:0 auto 20px;
 	max-width: 280px;
@@ -450,15 +585,20 @@ header {
 
 }
 
-.workbox dl dt span {
-	border: 1px solid #333;
-	padding:4px 10px;
-	margin-right:10px;
+.workbox dl {
+	max-width: 480px;
+	margin: 0 auto;
 }
 
 .workbox dl dt {
 	margin:20px 0 10px;
 	font-size:15px;
+}
+
+.workbox dl dt span {
+	border: 1px solid #333;
+	padding:4px 10px;
+	margin-right:10px;
 }
 
 .workbox dl dd {
@@ -1145,9 +1285,6 @@ footer {
 	border-bottom:1px dashed #ccc;
 }
 
-.newslist dl dt, .orderslist dl dt {
-}
-
 .newslist dl dd, .orderslist dl dd {
 	font-size:20px;
 	font-weight:bold;
@@ -1164,13 +1301,30 @@ footer {
 }
 
 .title11 {
-	font: bold 36px/36px "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+	font: bold 36px/1.3 "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 	color: #192253;
+	letter-spacing: -0.03em;
+	white-space: nowrap;
+	@media only screen and (max-width: 768px) {
+		font-size: 4.2vw;
+	}
 }
 
 .title12 {
-	font: 24px/28px "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+	font: 24px/1.3 "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 	color: #474747;
+	letter-spacing: -0.03em;
+	white-space: nowrap;
+	@media only screen and (max-width: 768px) {
+		font-size: 3.3vw;
+	}
+}
+
+
+@media only screen and (max-width: 768px) {
+	.title2 {
+		font-size: 3.3vw;
+	}
 }
 
 .tbl01 {
@@ -1257,6 +1411,35 @@ footer {
 	margin: 10px 0;
 }
 
+@media screen and (max-width: 767px) {
+	.navbar-toggle {
+		position: relative;
+		float: right;
+		padding: 9px 10px;
+		margin-top: 8px;
+		margin-right: 15px;
+		margin-bottom: 8px;
+	/* background-color: transparent; */
+		background-color:#FFFFFF;
+		background-image: none;
+		border: 1px solid #1D2658;
+		border-radius: 4px;
+		top: 80px;
+	}
+
+	.navbar-toggle .icon-bar {
+		display: block;
+		width: 22px;
+		height: 2px;
+		border-radius: 1px;
+		background-color: #1D2658;
+	}
+
+	.navbar-nav {
+		display: block;
+	}
+}
+
 @media screen and (min-width: 321px) and (max-width: 667px) {
 
 body {
@@ -1275,7 +1458,7 @@ body {
 
 #gnav li {
     text-align: center;
-    padding: 30px 70px 0;
+    padding: 5vw 5vw 0;
     font-size: 18px;
     font-weight: bold;
 }
@@ -1308,7 +1491,7 @@ body {
 }
 .navbar-brand {
     height: 145px;
-    padding: 0px 55px;
+    padding: 0px 5vw;
     font-size: 18px;
     line-height: 20px;
 }
@@ -1361,7 +1544,9 @@ body {
 }
 
 .tecbox {
-    margin: 0 10px 30px;
+    margin-bottom: 30px;
+	margin-left: unset;
+	margin-right: unset;
 }
 
 .work {
@@ -1536,6 +1721,8 @@ body {
 .blueback {
     padding: 30px 0;
     margin: 40px 0;
+	font-size: 16px;
+	line-height: 1.6;
 }
 
 .caption {
@@ -1756,12 +1943,6 @@ body {
     position: relative;
     top: 36px;
     left: -10px;
-}
-
-.title2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    line-height: 1.4em;
 }
 
 .maintext {
@@ -2040,11 +2221,6 @@ body {
 	color: #1e2857;
 }
 
-.title12 {
-	font-size: 22px;
-	color: #474747;
-}
-
 .xset {
 	padding-left:30px;
 }
@@ -2112,19 +2288,24 @@ body {
 }
 
 .navbar-brand {
-    float: left;
-    padding-left: 240px;
-    padding-top: 30px;
+    // float: left;
+    // padding-left: 240px;
+    // padding-top: 30px;
 }
 
 .navbar-nav {
     float: left;
-    margin: 80px 0 0;
+    // margin: 80px 0 0;
+}
+
+.navbar .container {
+	// @include flex-direction-column();
 }
 
 #gnav li {
     text-align: center;
-    padding: 80px 15px 0;
+    // padding: 80px 15px 0;
+	padding: 30px 15px 0;
     font-size: 18px;
     font-weight: bold;
 }
@@ -2360,7 +2541,7 @@ body {
 }
 
 .msl_main {
-	min-height:220px;
+	// min-height:220px;
 }
 
 @media screen and (max-width: 768px) { 
@@ -2609,27 +2790,27 @@ background-color:#F1F1F1;
 }
 
 .display-flex {
-	display: flex;
+	@include display-flex();
 }
 
 .align-items-center {
-	align-items: center;
+	@include align-items-center();
 }
 
 .align-items-stretch {
-	align-items: stretch;
+	@include align-items(stretch);
 }
 
 .justify-content-center {
-	justify-content: center;
+	@include justify-content-center();
 }
 
 .justify-content-space-between {
-	justify-content: space-between;
+	@include justify-content(space-between);
 }
 
 .flex-direction-column {
-	flex-direction: column;
+	@include flex-direction-column();
 }
 
 .text-align-center {
@@ -2660,6 +2841,7 @@ background-color:#F1F1F1;
 
 .img-circle {
 	height: 95px;
+	margin-right: 0.5em;
 }
 
 .renovation-technology .row-title.hidden-xs.hidden-sm {
@@ -2674,9 +2856,9 @@ background-color:#F1F1F1;
     height: 40px;
     border-radius: 50%;
 	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include display-flex();
+	@include justify-content-center();
+	@include align-items-center();
 	margin-top: 10px;
 	text-decoration: unset;
 	font-size: 20px;
@@ -2699,9 +2881,9 @@ background-color:#F1F1F1;
 }
 
 .renovation-technology .row-content:not(.paint-tec):not(.rainfall-tec) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include display-flex();
+	@include align-items-center();
+	@include justify-content-center();
 }
 
 .phone-link {
@@ -2724,7 +2906,7 @@ background-color:#F1F1F1;
 }
 
 .qa-item .question {
-	display: flex;
+	@include display-flex();
 	font: 18px/30px "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 	padding: 0 10px 20px;
 }
@@ -2743,7 +2925,7 @@ background-color:#F1F1F1;
 }
 
 .qa-item .answer {
-	display: flex;
+	@include display-flex();
 	font: 18px/30px "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 	background: white;
     padding: 20px 10px 20px;
@@ -2773,76 +2955,83 @@ background-color:#F1F1F1;
 	background: #be1d1f;
 	width: 8px;
 	height: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	@include display-flex();
+	@include justify-content-center();
+	@include align-items-center();
+	@include flex-direction-column();
 	margin-top: 32px;
 	margin-bottom: 40px;
-}
 
-.arrow-down.arrow-down--small {
-	background: #333333;
-	width: 5px;
-	height: 24px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
+	&:after{
+		content: '';
+		width: 0px;
+		height: 0px;
+		border-top: 15px solid #be1d1f;
+		border-left: 15px solid #be1d1f;
+		border-right: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		display: block;
+		@include transform(rotate(-135deg));
+	}
 
-.arrow-down::after {
-	content: '';
-	width: 0px;
-	height: 0px;
-	border-top: 15px solid #be1d1f;
-	border-left: 15px solid #be1d1f;
-	border-right: 15px solid transparent;
-	border-bottom: 15px solid transparent;
-	display: block;
-	transform: rotate(-135deg);
-}
+	&.arrow-down--small {
+		background: #333333;
+		width: 5px;
+		height: 24px;
+		margin-top: 30px;
+		margin-bottom: 30px;
 
-.arrow-down.arrow-down--small::after {
-	content: '';
-	width: 0px;
-	height: 0px;
-	border-top: 10px solid #333333;
-	border-left: 10px solid #333333;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	display: block;
-	transform: rotate(-135deg);
+		&:after {
+			content: '';
+			width: 0px;
+			height: 0px;
+			border-top: 10px solid #333333;
+			border-left: 10px solid #333333;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			display: block;
+			@include transform(rotate(-135deg));
+		}
+	}
 }
 
 .katei {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include display-flex();
+	@include align-items-center();
+	@include justify-content-center();
+
+	img {
+		margin: 8px;
+	}
 }
 
-.katei img {
-	margin: 8px;
+.sikourei {
+	@include display-flex();
+	@include align-items-center();
+	@include justify-content-center();
+
+	img {
+		margin: 8px;
+	}
 }
 
 .best-kouhou {
 	padding-top: 35px;
 	padding-bottom: 35px;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+	@include display-flex();
+	@include align-items-center();
+	@include flex-direction-column();
 }
 
 .best-kouhou .input {
+	font-family: "游ゴシック", sans-serif;
 	padding: 35px 70px;
 	background: white;
 	color: white;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
+	@include display-flex();
+	@include justify-content-center();
+	@include flex-direction-column();
+	@include align-items-center();
 }
 
 @media(max-width: 992px) {
@@ -2853,15 +3042,15 @@ background-color:#F1F1F1;
 }
 
 .best-kouhou .input .line {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font: bold 22px/22px '游ゴシック', "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+	@include display-flex();
+	@include justify-content-center();
+	@include align-items-center();
+	font: bold 22px/1 "游ゴシック", sans-serif;
 }
 
 @media(max-width: 768px) {
 	.best-kouhou .input .line {
-		flex-direction: column;
+		@include flex-direction-column();
 	}
 
 	.best-kouhou .input .line .bousui-joukou,
@@ -2882,9 +3071,9 @@ background-color:#F1F1F1;
 .best-kouhou .input .line > div {
 	width: 170px;
 	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include display-flex();
+	@include align-items-center();
+	@include justify-content-center();
 }
 
 .best-kouhou .input .line .bousui-joukou,
@@ -2921,7 +3110,7 @@ background-color:#F1F1F1;
 	background: #12b3a4;
 	padding: 20px 70px;
 	border-radius: 35px;
-	font: bold 30px/30px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+	font: bold 30px/1 "游ゴシック", sans-serif;
 	color: white;
 	margin-top: 25px;
 }
@@ -2950,10 +3139,36 @@ background-color:#F1F1F1;
 	}
 }
 
+@media(max-width: 1200px) {
+	.sikourei.sikourei--hidden-sm {
+		display: none;
+	}
+
+	.sikourei img {
+		width: 80%;
+	}
+}
+
+@media(min-width: 1201px) {
+	.sikourei.sikourei--visible-sm {
+		display: none;
+	}
+}
+
 @media(max-width: 640px) {
 	.renovation-technology .row-content:not(.paint-tec):not(.rainfall-tec) {
-		flex-direction: column;
-	}	
+		@include flex-direction-column();
+	}
+	.renovation-technology .row-title {
+		// @include align-items-center;
+	}
+	.renovation-technology .row-title > * {
+		// max-width: 480px;
+	}
+	.renovation-technology .row {
+		max-width: 480px;
+		margin: 0 auto;
+	}
 }
 
 @media (min-width: 1201px) {
@@ -2969,7 +3184,7 @@ background-color:#F1F1F1;
 }
 
 .reason1 .reason-img {
-	flex: 0;
+	@include flex(0);
 }
 
 .reason1 .reason-img img {
@@ -2978,30 +3193,31 @@ background-color:#F1F1F1;
 }
 
 .reason1 .reason-list {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
-	flex: 1 1 auto;
+	@include display-flex();
+	@include justify-content(space-between);
+	@include flex-direction-column();
+	@include align-items(stretch);
+	@include flex(1 1 auto);
 }
 
 .reason1 .reason-list .item {
-	display: flex;
-	justify-content: space-between;
-	align-items: stretch;
+	@include display-flex();
+	@include justify-content(space-between);
+	@include align-items(stretch);
 	height: 50px;
 	line-height: 50px;
 }
 
 .reason1 .reason-list .item .fixed-field {
-	flex: 0 0 auto;
+	@include flex(0 0 auto);
 }
 
 .reason1 .reason-list .item .fixed-field:first-child {
 	font: 18px/22px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
 	background: #1872ad;
 	color: white;
-	display: flex;
-	align-items: center;
+	@include display-flex();
+	@include align-items-center();
 	padding-left: 12px;
 	padding-right: 12px;
 }
@@ -3010,8 +3226,8 @@ background-color:#F1F1F1;
 	font: 22px/26px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
 	background: #f2f2f2;
 	color: #333333;
-	display: flex;
-	align-items: center;
+	@include display-flex();
+	@include align-items-center();
 	padding-left: 25px;
 }
 
@@ -3021,11 +3237,11 @@ background-color:#F1F1F1;
 }
 
 .reason1 .reason-list .item .fixed-field:last-child {
-	font: 18px/22px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
+	font: 18px/1.2 "游ゴシック", sans-serif;
 	color: white;
 	background: #f2f2f2;
-	display: flex;
-	align-items: center;
+	@include display-flex();
+	@include align-items-center();
 }
 
 .reason1 .reason-list .item .fixed-field .blue-item {
@@ -3045,7 +3261,7 @@ background-color:#F1F1F1;
 }
 
 .reason1 .reason-list .item .variable-field {
-	flex: 1 1 auto;
+	@include flex(1 1 auto);
 }
 
 @media(max-width: 1199px) and (min-width: 992px) {
@@ -3061,9 +3277,9 @@ background-color:#F1F1F1;
 	.reason1 .reason-list .item .variable-field {
 		padding-left: 10px;
 		padding-right: 10px;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
+		@include flex-direction-column();
+		@include justify-content-center();
+		@include align-items(flex-start);
 	}
 	.reason1 .reason-list .item .variable-field span {
 		display: block;
@@ -3089,7 +3305,7 @@ background-color:#F1F1F1;
 	}
 
 	.reason1 > div {
-		flex-direction: column;
+		@include flex-direction-column();
 	}
 
 	.reason1 .reason-list {
@@ -3113,7 +3329,7 @@ background-color:#F1F1F1;
 	}
 
 	.reason1 > div {
-		flex-direction: column;
+		@include flex-direction-column();
 	}
 
 	.reason1 .reason-list {
@@ -3129,9 +3345,9 @@ background-color:#F1F1F1;
 	.reason1 .reason-list .item .variable-field {
 		padding-left: 30px;
 		padding-right: 30px;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
+		@include flex-direction-column();
+		@include justify-content-center();
+		@include align-items(flex-start);
 	}
 	.reason1 .reason-list .item .variable-field span {
 		display: block;
@@ -3148,7 +3364,7 @@ background-color:#F1F1F1;
 
 @media (max-width: 640px) {
 	.reason1 > div {
-		align-items: center;
+		@include align-items-center();
 	}
 
 	.reason1 .reason-list {
@@ -3156,13 +3372,13 @@ background-color:#F1F1F1;
 	}
 
 	.reason1 .reason-list .item {
-		flex-direction: column;
+		@include flex-direction-column();
 		height: auto;
 	}
 
 	.reason1 .reason-list .item .fixed-field {
 		height: 60px;
-		justify-content: center;
+		@include justify-content-center();
 	}
 
 	.reason1 .reason-list .item .fixed-field:first-child {
@@ -3177,7 +3393,7 @@ background-color:#F1F1F1;
 		white-space: nowrap;
 		padding-top: 30px;
 		padding-bottom: 10px;
-		align-items: center;
+		@include align-items-center();
 		font-size: 28px;
 	}
 
@@ -3223,16 +3439,16 @@ background-color:#F1F1F1;
 }
 
 .reason2 .reason-list {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
-	flex: 1 1 auto;
+	@include display-flex();
+	@include justify-content(space-between);
+	@include flex-direction-column();
+	@include flex(1 1 auto);
 }
 
 .reason2 .reason-list .item {
-	display: flex;
-	justify-content: space-between;
-	align-items: stretch;
+	@include display-flex();
+	@include justify-content(space-between);
+	@include align-items(stretch);
 }
 
 .reason2 .reason-list .item + .item {
@@ -3240,15 +3456,15 @@ background-color:#F1F1F1;
 }
 
 .reason2 .reason-list .item .fixed-field {
-	flex: 0 0 auto;
+	@include flex(0 0 auto);
 }
 
 .reason2 .reason-list .item .fixed-field:first-child {
-	font: 18px/22px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
+	font: 18px/22px "游ゴシック", sans-serif;;
 	background: #1872ad;
 	color: white;
-	display: flex;
-	align-items: center;
+	@include display-flex();
+	@include align-items-center();
 	padding-left: 12px;
 	padding-right: 12px;
 }
@@ -3283,11 +3499,11 @@ background-color:#F1F1F1;
 }
 
 .reason2 .reason-list .item .fixed-field:last-child {
-	font: 18px/22px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
+	font: 18px/1.2 "游ゴシック", sans-serif;;
 	color: white;
 	background: #f2f2f2;
-	display: flex;
-	align-items: center;
+	@include display-flex();
+	@include align-items-center();
 }
 
 .reason2 .reason-list .item .fixed-field .blue-item {
@@ -3298,20 +3514,21 @@ background-color:#F1F1F1;
 }
 
 .reason2 .reason-list .item .variable-field {
-	flex: 1 1 auto;
+	@include flex(1 1 auto);
 }
 
 @media (max-width: 640px) {
 	.reason2 > div {
-		align-items: center;
+		@include align-items-center();
 	}
 
 	.reason2 .reason-list {
-		width: 80vw;
+		max-width: 80vw;
+		margin: 0 auto;
 	}
 
 	.reason2 .reason-list .item {
-		flex-direction: column;
+		@include flex-direction-column();
 		height: auto;
 	}
 
@@ -3320,8 +3537,8 @@ background-color:#F1F1F1;
 	}
 
 	.reason2 .reason-list .item .fixed-field {
+		@include justify-content-center();
 		height: 60px;
-		justify-content: center;
 	}
 
 	.reason2 .reason-list .item .fixed-field:first-child {
@@ -3336,19 +3553,19 @@ background-color:#F1F1F1;
 		white-space: nowrap;
 		padding-top: 30px;
 		padding-bottom: 10px;
-		align-items: center;
+		@include align-items-center();
 		text-align: center;
 	}
 
 	.reason2 .reason-list .item .variable-field span:first-child {
-		font-size: 28px !important;
-		line-height: 36px !important;
+		font-size: 4.8vw !important;
+		line-height: 1.3 !important;
 	}
 
 	.reason2 .reason-list .item .variable-field span:not(:first-child) {
-		margin-top: 20px;
-		font-size: 24px !important;
-		line-height: 28px !important;
+		font-size: 4vw !important;
+		line-height: 1.2 !important;
+		margin-top: 0.8em;
 	}
 
 	.reason2 .reason-list .item .fixed-field .blue-item {
@@ -3404,41 +3621,41 @@ background-color:#F1F1F1;
 }
 
 .reason3 .reason-list {
-	display: flex;
-	justify-content: space-between;
-	flex-direction: column;
+	@include display-flex();
+	@include justify-content(space-between);
+	@include flex-direction-column();
 }
 
 .reason3 .reason-list .item {
-	display: flex;
-	justify-content: space-between;
-	align-items: stretch;
+	@include display-flex();
+	@include justify-content(space-between);
+	@include align-items(stretch);
 	height: 50px;
 	line-height: 50px;
 }
 
 .reason3 .reason-list .item .fixed-field {
-	flex: 0 0 auto;
+	@include flex(0 0 auto);
 }
 
 .reason3 .reason-list .item .fixed-field:first-child {
-	font: 18px/22px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
+	font: 18px/1.2 "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
 	background: #1872ad;
 	color: white;
-	display: flex;
-	align-items: center;
+	@include display-flex();
+	@include align-items-center();
 	padding-left: 12px;
 	padding-right: 12px;
 }
 
 .reason3 .reason-list .item .variable-field {
-	font: 22px/26px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
+	font: 20px/1.2 "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
 	background: #f2f2f2;
 	color: #333333;
-	display: flex;
-	align-items: center;
-	padding-left: 25px;
-	padding-right: 25px;
+	@include display-flex();
+	@include align-items-center();
+	padding-left: 1em;
+	padding-right: 1em;
 }
 
 .reason3 .reason-list .item .variable-field .small {
@@ -3450,8 +3667,8 @@ background-color:#F1F1F1;
 	font: 18px/22px "游ゴシック", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
 	color: white;
 	background: #f2f2f2;
-	display: flex;
-	align-items: center;
+	@include display-flex();
+	@include align-items-center();
 }
 
 .reason3 .reason-list .item .fixed-field .blue-item {
@@ -3471,7 +3688,7 @@ background-color:#F1F1F1;
 }
 
 .reason3 .reason-list .item .variable-field {
-	flex: 1 1 auto;
+	@include flex(1 1 auto);
 }
 
 @media(max-width: 1199px) and (min-width: 992px) {
@@ -3488,9 +3705,9 @@ background-color:#F1F1F1;
 	.reason3 .reason-list .item .variable-field {
 		padding-left: 10px;
 		padding-right: 10px;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
+		@include flex-direction-column();
+		@include justify-content-center();
+		@include align-items(flex-start);
 	}
 	.reason3 .reason-list .item .variable-field span {
 		display: block;
@@ -3518,7 +3735,7 @@ background-color:#F1F1F1;
 	}
 
 	.reason3 > div {
-		flex-direction: column;
+		@include flex-direction-column();
 	}
 
 	.reason3 .reason-list {
@@ -3543,7 +3760,7 @@ background-color:#F1F1F1;
 	}
 
 	.reason3 > div {
-		flex-direction: column;
+		@include flex-direction-column();
 	}
 
 	.reason3 .reason-list {
@@ -3559,9 +3776,9 @@ background-color:#F1F1F1;
 	.reason3 .reason-list .item .variable-field {
 		padding-left: 30px;
 		padding-right: 30px;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
+		@include flex-direction-column();
+		@include justify-content-center();
+		@include align-items(flex-start);
 	}
 	.reason3 .reason-list .item .variable-field span {
 		display: block;
@@ -3578,7 +3795,7 @@ background-color:#F1F1F1;
 
 @media (max-width: 640px) {
 	.reason3 > div {
-		align-items: center;
+		@include align-items-center();
 	}
 
 	.reason3 .reason-list {
@@ -3586,29 +3803,29 @@ background-color:#F1F1F1;
 	}
 
 	.reason3 .reason-list .item {
-		flex-direction: column;
+		@include flex-direction-column();
 		height: auto;
 	}
 
 	.reason3 .reason-list .item .fixed-field {
 		height: 60px;
-		justify-content: center;
+		@include justify-content-center();
 	}
 
 	.reason3 .reason-list .item .fixed-field:first-child {
-		font-size: 28px !important;
+		font-size: 4.8vw !important;
 	}
 
 	.reason3 .reason-list .item .fixed-field:last-child {
-		font-size: 24px !important;
+		font-size: 4vw !important;
 	}
 
 	.reason3 .reason-list .item .variable-field {
 		padding-top: 30px;
 		padding-bottom: 30px;
-		align-items: center;
-		font-size: 28px;
-		line-height: 36px;
+		@include align-items-center();
+		font-size: 4vw;
+		line-height: 1.3;
 		text-align: center;
 	}
 
@@ -3651,4 +3868,307 @@ background-color:#F1F1F1;
 	.reason3 .reason-list {
 		width: 100%;
 	}
+}
+
+.width-100-percent {
+	width: 100%;
+	height: auto;
+}
+
+@media (max-width: 640px) {
+	.company .container .row {
+		@include flex-direction-column();
+		@include align-items-center();
+
+		div + div {
+			margin-top: 70px;
+		}
+	}
+
+	.blueback {
+		font-size: 2.8vw;
+	}
+}
+
+@media (max-width: 768px) {
+	.msl_2_3 {
+		@include flex-direction-column();
+	}
+
+	.msl_2_3, .orders-container, .news-container {
+		max-width: 480px;
+
+		h4 span {
+			display: block;
+			margin-top: 0.5em;
+			margin-left: unset;
+		}
+	}
+
+	.img-circle {
+		height: 15vw;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.msl_2_3 {
+		h4 span {
+			display: block;
+			margin-top: 0.5em;
+			margin-left: unset;
+		}
+	}
+}
+
+.visible-992-1200 {
+	display: none;
+}
+@media only screen and (min-width: 993px) {
+	.visible-992-1200 {
+		display: block;
+	}
+}
+.visible-992 {
+	display: none;
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+	.visible-992 {
+		display: block;
+	}
+}
+.visible-768 {
+	display: none;
+}
+@media only screen and (min-width: 641px) and (max-width: 768px) {
+	.visible-768 {
+		display: block;
+	}
+}
+.visible-640 {
+	display: none;
+}
+@media only screen and (max-width: 768px) {
+	.visible-640 {
+		display: block;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@charset "utf-8";
+.mslongtail_wrapper {
+	margin: 0px 0px 10px;
+}
+
+.mslongtail_wrapper * {
+	box-sizing: content-box !important;
+}
+
+.mslongtail_wrapper h2 {
+	display: none;
+	background-color: #005582;
+	color: #FFF;
+	padding: 10px;
+	font-size: 26px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 30px;
+	border-radius: 6px;
+}
+
+.mslongtail_inner {}
+
+.mslongtail_inner p {
+	clear: both;
+	border-top: 1px solid #ccc;
+	text-align: right;
+	padding: 10px 0px 0px;
+
+}
+
+.mslongtail_inner a {}
+
+.mslongtail_link_block ul {
+	border-top: solid 1px #ccc;
+	text-align: center;
+	margin: 10px 0px 0px;
+	padding: 10px 0px 0px;
+	list-style: none;
+	overflow: hidden;
+}
+
+.mslongtail_link_block li {
+	display: inline;
+	margin: 0px 5px;
+}
+
+.mslongtail_type_definition dl {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+}
+
+.mslongtail_type_definition dt {
+	padding: 10px 0px 5px;
+	margin: 0px;
+	border-top: 1px solid #ccc;
+}
+
+.mslongtail_type_definition dt a {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.mslongtail_type_definition .mslongtail_title_top {
+	padding-top: 0px;
+	border-width: 0px;
+}
+
+.mslongtail_type_definition dd {
+	padding: 0px 0px 10px 0px;
+	margin: 0px;
+}
+
+.mslongtail_type_definition .mslongtail_img img {
+	margin-bottom: 5px;
+	width: 200px;
+	max-width: 200px;
+}
+
+.mslongtail_type_list .mslongtail_inner > ul {
+	margin: 0px;
+	padding: 0px 0px 10px;
+	list-style: none;
+	text-align: left;
+}
+
+.mslongtail_type_list .mslongtail_inner > ul li {
+	padding: 10px 0px;
+	margin: 0px;
+	border-top: 1px dotted #ccc;
+}
+
+.mslongtail_type_list .mslongtail_inner > ul li.mslongtail_title_top {
+	padding-top: 10px;
+	border-top-width: 0px;
+}
+
+.mslongtail_type_list .mslongtail_inner > ul li.mslongtail_title_bottom {
+	margin: 0px;
+	padding-bottom: 0px;
+}
+
+.mslongtail_type_list .mslongtail_title a {
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.mslongtail_type_img .mslongtail_inner > ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.mslongtail_type_img .mslongtail_inner > ul li {
+	padding: 5px;
+	margin: 0px 5px 10px;
+	width: 150px;
+	background: #f1f1f1;
+	display: inline-block;
+}
+
+.mslongtail_type_img .mslongtail_inner > ul li span {
+	display: block;
+	height: 150px;
+	overflow: hidden;
+}
+
+.mslongtail_type_img img {
+	width: 100%;
+}
+
+.mslongtail_type_img p {
+	margin: 0px;
+}
+
+.mslongtail_type_img .mslongtail_link_block ul {}
+
+.mslongtail_type_imgtext .mslongtail_inner > ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.mslongtail_type_imgtext .mslongtail_inner > ul li {
+	padding: 5px;
+	margin: 0px 5px 10px;
+	width: 150px;
+	background: #f1f1f1;
+	display: inline-block;
+}
+
+.mslongtail_type_imgtext .mslongtail_inner > ul li a {
+	text-decoration: none;
+}
+
+.mslongtail_type_imgtext .mslongtail_img {
+	display: block;
+	height: 150px;
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+.mslongtail_type_imgtext .mslongtail_img img {
+	width: 100%;
+}
+
+.mslongtail_type_imgtext .mslongtail_title {
+	color: #333333;
+	display: inline-block;
+	overflow: hidden;
+	height: 14px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 14px;
+}
+
+.mslongtail_type_imgtext p {}
+
+.mslongtail_type_imgtext .mslongtail_link_block ul {}
+
+.mslongtail_body, .mslongtail_title {
+	word-break: break-all;
+	overflow-wrap: break-word;
+}
+
+.mslongtail_body img {
+	vertical-align: baseline;
 }

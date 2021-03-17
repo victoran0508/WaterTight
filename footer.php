@@ -19,9 +19,9 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 footlist">
                     <h5>サービス紹介</h5>
                     <ul>
-                        <li> <a href="/waterproof/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 防水工事</a></li>
-                        <li> <a href="/paint/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 塗装工事</a></li>
-                        <li> <a href="/peeling/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 剥離・炭素繊維工法</a></li>
+                        <li> <a href="<?php echo home_url();?>/waterproof/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 防水工事</a></li>
+                        <li> <a href="<?php echo home_url();?>/paint/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 塗装工事</a></li>
+                        <li> <a href="<?php echo home_url();?>/peeling/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 剥離・炭素繊維工法</a></li>
                     </ul>
                 </div>
                 <!--footlist-->
@@ -29,9 +29,9 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 footlist">
                     <h5>実績紹介</h5>
                     <ul>
-                        <li> <a href="/category/waterproof/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 防水工事実績</a></li>
-                        <li> <a href="/category/paint/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 塗装工事実績</a></li>
-                        <li> <a href="/category/otherwork/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> その他工事実績</a></li>
+                        <li> <a href="<?php echo home_url();?>/category/waterproof/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 防水工事実績</a></li>
+                        <li> <a href="<?php echo home_url();?>/category/paint/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 塗装工事実績</a></li>
+                        <li> <a href="<?php echo home_url();?>/category/otherwork/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> その他工事実績</a></li>
                     </ul>
                 </div>
                 <!--footlist-->
@@ -39,10 +39,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 footlist">
                     <h5>企業情報</h5>
                     <ul>
-                        <li> <a href="/greeting/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 代表挨拶</a></li>
-                        <li> <a href="/company/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 会社概要</a></li>
-                        <li> <a href="/contact/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> お問い合わせ</a></li>
-                        <li> <a href="/category/news/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> お知らせ</a></li>
+                        <li> <a href="<?php echo home_url();?>/greeting/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 代表挨拶</a></li>
+                        <li> <a href="<?php echo home_url();?>/company/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 会社概要</a></li>
+                        <li> <a href="<?php echo home_url();?>/contact/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> お問い合わせ</a></li>
+                        <li> <a href="<?php echo home_url();?>/category/news/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> お知らせ</a></li>
                     </ul>
                 </div>
                 <!--footlist-->

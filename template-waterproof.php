@@ -28,7 +28,7 @@ endif;
         <div class="col-md-6"><img src="<?php echo get_template_directory_uri(); ?>/images/waterproof/catch.png" alt="防水工事実績" class="img-responsive mb20 img-cnt"/></div>
         <div class="col-md-6">
             <div class="workbox2">
-                <?php query_posts('cat=2&showposts=3'); ?>
+                <?php query_posts('cat=4&showposts=3'); ?>
                 <?php if(have_posts()): while(have_posts()):the_post(); ?>
 
                     <dl>

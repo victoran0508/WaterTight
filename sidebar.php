@@ -36,10 +36,10 @@
         <h4><i class="fa fa-pencil" aria-hidden="true"></i> カテゴリー</h4>
         <div class="side-list2">
             <ul>
-                <li> <a href="/category/waterproof/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 防水工事</a></li>
-                <li> <a href="/category/paint/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 塗装工事</a></li>
-                <li> <a href="/category/otherwork/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> その他工事</a></li>
-                <li> <a href="/category/news/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> お知らせ</a></li>
+                <li> <a href="<?php echo home_url();?>/category/waterproof/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 防水工事</a></li>
+                <li> <a href="<?php echo home_url();?>/category/paint/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 塗装工事</a></li>
+                <li> <a href="<?php echo home_url();?>/category/otherwork/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> その他工事</a></li>
+                <li> <a href="<?php echo home_url();?>/category/news/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> お知らせ</a></li>
             </ul>
         </div>
         <!--side-list2-->
