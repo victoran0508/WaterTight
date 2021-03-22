@@ -5,8 +5,8 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 footlist">
                     <ul>
                         <li> <a href="<?php echo home_url();?>"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> ホーム</a></li>
-                        <li> <a href="/business/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 事業内容</a></li>
-                        <li> <a href="/rainfall/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 雨漏り検知器について</a></li>
+                        <li> <a href="<?php echo home_url(); ?>/business/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 事業内容</a></li>
+                        <li> <a href="<?php echo home_url(); ?>/rainfall/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 雨漏り検知器について</a></li>
                         <li class="display-flex hidden-1200-down">
                             <a href="<?php echo home_url();?>/instagram/" class="sns-btn"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             <a href="<?php echo home_url();?>/facebook/" class="sns-btn"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -72,7 +72,7 @@
                 <div class="col-md-4 flogo"> <img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" width="311" height="99" alt="ウォータータイト工業株式会社" class="img-responsive"/>
                     <p class="nmb20">新築・改修・防水工事( 下地処理・塗装・補強)</p>
                 </div>
-                <div class="col-md-4 finq"> <a class="btn btn1" href="/contact/">お気軽にご相談・お問い合せください <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> <a href="tel:0447516125"><img src="<?php echo get_template_directory_uri(); ?>/images/tel2.png" width="333" height="49" alt="0447516125" class="img-responsive img-cnt mt10"/></a> </div>
+                <div class="col-md-4 finq"> <a class="btn btn1" href="<?php echo home_url(); ?>/contact/">お気軽にご相談・お問い合せください <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> <a href="tel:0447516125"><img src="<?php echo get_template_directory_uri(); ?>/images/tel2.png" width="333" height="49" alt="0447516125" class="img-responsive img-cnt mt10"/></a> </div>
                 <div class="col-md-4 fcopy">
                     <p>〒213-0023<br>
                         神奈川県川崎市高津区子母口365-4</p>
@@ -141,7 +141,7 @@ $(function(){
 <div align="right"><a href="tel:044-751-6125"><img src="https://water-tight.co.jp/wp-content/themes/WaterTight/images/footer_tel.png" alt="お電話でお問合せ" width="300"></a></div>
 </td>
 <td>
-<div align="left"><a href="/contact/"><img src="https://water-tight.co.jp/wp-content/themes/WaterTight/images/footer_mail.png" alt="メールでのお問合せはこちら" width="300"></a></div>
+<div align="left"><a href="<?php echo home_url(); ?>/contact/"><img src="https://water-tight.co.jp/wp-content/themes/WaterTight/images/footer_mail.png" alt="メールでのお問合せはこちら" width="300"></a></div>
 </td>
 </tr>
 </table>
@@ -169,7 +169,7 @@ $(function(){
 <div align="right"><a href="tel:044-751-6125"><img src="https://water-tight.co.jp/wp-content/themes/WaterTight/images/footer_tel.png" alt="お電話でお問合せ"></a></div>
 </td>
 <td>
-<div align="left"><a href="/contact/"><img src="https://water-tight.co.jp/wp-content/themes/WaterTight/images/footer_mail.png" alt="メールでのお問合せはこちら"></a></div>
+<div align="left"><a href="<?php echo home_url(); ?>/contact/"><img src="https://water-tight.co.jp/wp-content/themes/WaterTight/images/footer_mail.png" alt="メールでのお問合せはこちら"></a></div>
 </td>
 </tr>
 </table>

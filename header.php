@@ -7,7 +7,7 @@
     <meta name="keywords" content="神奈川県川崎市,屋上防水工事,マンション大規模修繕工事,改修工事">
     <meta name="description" content="屋上防水工事、マンション大規模修繕工事なら、神奈川県川崎市に拠点を置くウォータータイト工業株式会社にお任せ下さい。最新の技術を取り入れ、新築から改修工事・管理まで、建物維持管理のスペシャリストが豊富な経験則に基づいた最善の工事を提案します。">
     <title>神奈川県川崎市の屋上防水工事マンション修繕のウォータータイト工業</title>
-	<link rel="stylesheet" href="/article/css/top.css">
+	<link rel="stylesheet" href="<?php echo home_url(); ?>/article/css/top.css">
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700" rel="stylesheet">

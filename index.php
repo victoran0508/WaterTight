@@ -21,7 +21,7 @@
         <p>川崎市高津区を拠点とし建物の総合的な新築工事・改修工事・管理を行っております。 </p>
         <p>従来の施工工事だけでなく、どの様な条件下でも最善な施工が行えるよう</p>
         <p>最新の技術を取り入れ、サービス向上を高めていくことを大切にしております。</p>
-        <div class="btnw1"> <a class="btn btn1" href="/business/">ウォータータイト工業の事業内容 <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+        <div class="btnw1"> <a class="btn btn1" href="<?php echo home_url(); ?>/business/">ウォータータイト工業の事業内容 <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
     </section>
 </div>
 <!--maintext-->
@@ -51,7 +51,7 @@
             <?php wp_reset_query(); ?>
         </div>
     </div>
-    <div class="btnw2"> <a class="btn btn1" href="/category/orders/">受注状況一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+    <div class="btnw2"> <a class="btn btn1" href="<?php echo home_url(); ?>/category/orders/">受注状況一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 </div>
 <!-- 受注状況 end -->
 <?php
@@ -125,7 +125,7 @@
         </div>
         <div class="col-md-6 col-sm-6 tecbox">
             <h4 class="title2">無駄のない工事で工期を短縮し<br>コストパフォーマンスの<br class="visible-768">向上を実現</h4>
-            <p>既存防水層の種類や接着性を問いません。 また湿潤下地でも施工可能です。 下地調整も軽微で済み「かぶせ工法」に最適です。</p>
+            <p>既存防水層の種類や接着性を問いません。<br>また湿潤下地でも施工可能です。<br>下地調整も軽微で済み「かぶせ工法」に最適です。</p>
             <a class="btn btn1" href="<?php echo home_url(); ?>/waterproof/">詳細はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
         </div>
     </div>
@@ -258,7 +258,7 @@
         <!--col-->
     </div>
     <!--row-->
-    <div class="btnw2"> <a class="btn btn1" href="/worklist/">施工実績一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+    <div class="btnw2"> <a class="btn btn1" href="<?php echo home_url(); ?>/worklist/">施工実績一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 </div>
 <!--container-->
 
@@ -271,13 +271,13 @@
                     <dt>代表挨拶 <span>MESSAGE</span></dt>
                     <dd>当社の理念・代表からのご挨拶。</dd>
                 </dl>
-                <a class="btn btn1" href="/greeting/">詳細はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+                <a class="btn btn1" href="<?php echo home_url(); ?>/greeting/">詳細はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
             <div class="col-md-6 col-sm-6 combox"> <img src="<?php echo get_template_directory_uri(); ?>/images/_com2.png" width="480" height="288" alt="代表挨拶" class="img-responsive img-cnt"/>
                 <dl>
                     <dt>会社概要<span>COMAPNY</span></dt>
                     <dd>当社の会社概要をご紹介します。</dd>
                 </dl>
-                <a class="btn btn1" href="/company/">詳細はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+                <a class="btn btn1" href="<?php echo home_url(); ?>/company/">詳細はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
         </div>
     </div>
     <!--container-->
@@ -309,7 +309,7 @@
             <?php wp_reset_query(); ?>
         </div>
     </div>
-    <div class="btnw2"> <a class="btn btn1" href="/category/news/">お知らせ一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+    <div class="btnw2"> <a class="btn btn1" href="<?php echo home_url(); ?>/category/news/">お知らせ一覧はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
 </div>
 <!-- お知らせ end -->
 

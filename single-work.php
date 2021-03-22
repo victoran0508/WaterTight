@@ -11,7 +11,7 @@
     <nav>
         <ol class="breadcrumb mt20">
             <li><a href="<?php echo home_url();?>"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li><a href="/work/">実績紹介</a></li>
+            <li><a href="<?php echo home_url(); ?>/work/">実績紹介</a></li>
             <li><?php the_title();?></li>
         </ol>
     </nav>

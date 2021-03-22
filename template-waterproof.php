@@ -43,7 +43,7 @@ endif;
 
 
             </div>
-            <a class="btn btn1" href="/category/waterproof/">防水工事の施工実績はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
+            <a class="btn btn1" href="<?php echo home_url(); ?>/category/waterproof/">防水工事の施工実績はこちら <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a> </div>
     </div>
     <!--row-->
 </div>

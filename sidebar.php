@@ -40,6 +40,7 @@
                 <li> <a href="<?php echo home_url();?>/category/paint/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 塗装工事</a></li>
                 <li> <a href="<?php echo home_url();?>/category/otherwork/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> その他工事</a></li>
                 <li> <a href="<?php echo home_url();?>/category/news/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> お知らせ</a></li>
+                <li> <a href="<?php echo home_url();?>/category/orders/"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> 受注状況</a></li>
             </ul>
         </div>
         <!--side-list2-->
