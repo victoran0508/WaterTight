@@ -242,8 +242,8 @@
         <!--col-->
         <div class="col-md-4 col-sm-4">
             <div class="workbox">
-                <h6 class="w-label2">階段・供用廊下工事</h6>
-                <img src="<?php echo get_template_directory_uri(); ?>/images/catch2.png" alt="階段・供用廊下工事" class="img-responsive img-cnt"/>
+                <h6 class="w-label2">階段・共用廊下工事</h6>
+                <img src="<?php echo get_template_directory_uri(); ?>/images/catch2.png" alt="階段・共用廊下工事" class="img-responsive img-cnt"/>
                 <?php query_posts('cat=4&showposts=3'); ?>
                 <?php if(have_posts()): while(have_posts()):the_post(); ?>
                     <dl>
